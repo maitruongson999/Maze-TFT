@@ -1,0 +1,14 @@
+Privacy Policy for Maze TFT
+
+Maze TFT does not collect, store, transmit, or share personal information.
+
+The game stores only local gameplay data on the user's device, such as the best score and locally simulated upgrade ownership in the demo build. This data is not sent to the developer or to any third party.
+
+The production Microsoft Store version may use Microsoft Store services to process purchases and restore ownership. Payment information is handled by Microsoft according to its own privacy policies. Maze TFT does not directly access or store payment card information.
+
+Maze TFT does not use advertising, analytics, location services, camera, microphone, contacts, or background tracking.
+
+Contact:
+Replace this line with your support email before submission.
+
+Last updated: July 20, 2026

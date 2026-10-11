@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Maze TFT</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#00bfff">
+  <meta name="description" content="A lightweight rotating maze puzzle game.">
+  <link rel="icon" href="./icons/icon-192.png">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Maze TFT</h1>
+        <p>Rotate the maze. Guide the spark. Escape before the grid shifts.</p>
+      </div>
+      <button id="openStore" class="small-btn">Upgrades</button>
+    </header>
+
+    <section class="stats">
+      <div><span>Score</span><strong id="score">0</strong></div>
+      <div><span>Best</span><strong id="best">0</strong></div>
+      <div><span>Stage</span><strong id="stage">1</strong></div>
+      <div><span>Mode</span><strong id="modeLabel">Classic</strong></div>
+    </section>
+
+    <section class="game-shell">
+      <canvas id="game" width="720" height="720" aria-label="Maze TFT game"></canvas>
+      <div id="overlay" class="overlay">
+        <h2 id="overlayTitle">Maze TFT</h2>
+        <p id="overlayText">Use Arrow Keys or WASD. Reach the glowing exit before time runs out.</p>
+        <button id="startBtn" class="primary-btn">Start Game</button>
+      </div>
+    </section>
+
+    <section class="controls">
+      <button id="classicBtn" class="mode active">Classic</button>
+      <button id="zenBtn" class="mode locked">Zen Pro</button>
+      <button id="chaosBtn" class="mode locked">Shift Ultra</button>
+      <button id="soundBtn" class="mode">Sound: On</button>
+    </section>
+
+    <p class="hint">Controls: Arrow Keys or WASD. Press R to rotate the maze. Reach the exit and avoid red traps.</p>
+  </main>
+
+  <dialog id="storeDialog">
+    <div class="store-head">
+      <div>
+        <h2>Permanent Upgrades</h2>
+        <p>One-time purchases. These products do not expire.</p>
+      </div>
+      <button id="closeStore" class="icon-btn" aria-label="Close">×</button>
+    </div>
+
+    <div class="product-grid">
+      <article class="product">
+        <div class="tag">$5</div>
+        <h3>Pro Plus</h3>
+        <p>Unlocks Zen Pro mode, 3 permanent maze themes, and removes upgrade reminders.</p>
+        <button class="buy-btn" data-product="pro_plus">Unlock Pro Plus</button>
+      </article>
+
+      <article class="product featured">
+        <div class="tag">$10</div>
+        <h3>Ultra Plus</h3>
+        <p>Includes Pro Plus, unlocks Shift Ultra mode, 6 permanent themes, and advanced maze variants.</p>
+        <button class="buy-btn" data-product="ultra_plus">Unlock Ultra Plus</button>
+      </article>
+    </div>
+
+    <button id="restoreBtn" class="restore-btn">Restore Purchases</button>
+    <p id="storeMessage" class="store-message" aria-live="polite"></p>
+    <p class="dev-note">This demo simulates purchases locally. Connect these product IDs to Microsoft Store non-consumable add-ons before publishing.</p>
+  </dialog>
+
+  <script src="game.js"></script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./service-worker.js")
+        .catch(error => console.error("Service worker registration failed:", error));
+    });
+  }
+</script>
+
+</body>
+</html>
